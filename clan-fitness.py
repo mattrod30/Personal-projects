@@ -4,14 +4,27 @@ users = [
     {"name": "LeBron", "goal": 200, "eaten": 120},
     ]
 
-
+winners = []
+losers = []
 for user in users:
-    remaining = user["goal"] - user["eaten"]
+    user["remaining"] = user["goal"] - user["eaten"]
+    
+sorted_users = sorted(users, key=lambda x: x["remaining"])
 
-    print(f"\nUser: {user['name']}")
-    print (f"Protein remaining: {remaining}g")
+print ("\n Leaderboard:")
+for i, user in enumerate(sorted_users, start =1):
+    print(f"Placement:{i} {user['name']} - {user['remaining']}g left")
 
-    if remaining > 0:
-        print(f"What the hell are you doing, {user['name']}?")
+    if (user["remaining"] <= 0):
+        winners.append(user)
     else:
-        print("AYEEEE LETS GOOOOO")
+        losers.append(user)
+
+print ("\nWinners:")
+for user in winners:
+    print(f"{user['name']} did that shi")
+
+print ("\nLosers:")
+for user in losers:
+    print(f"{user['name']} is a bitch")
+print ("\n")
