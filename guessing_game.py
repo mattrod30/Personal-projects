@@ -30,11 +30,11 @@ while True:
         elif guess > random_number:
             print("Not quite, guess lower!")
         else:
-            print(f"Correct, you got it in {attempt_count} attempts, nice job!")
+            print(f"Correct, you got it in {attempt_count} attempts. Nice job!")
             break
 
         if remaining_attempts == 0:
-            print("You ran out of guesses!")
+            print(f"You ran out of guesses! The number was {random_number}")
             break
         
 
